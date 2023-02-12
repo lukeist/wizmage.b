@@ -1,3 +1,5 @@
+import { Configuration, OpenAIApi } from "openai";
+
 export const getDallE = async (req, res) => {
   try {
     res.send("Hi DE");
@@ -6,10 +8,14 @@ export const getDallE = async (req, res) => {
   }
 };
 
-export const postDallE = async (res, req) => {
+export const postDallE = async (req, res) => {
   try {
+    const configuration = new Configuration({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+    const openai = new OpenAIApi(configuration);
     const { prompt } = req.body;
-    const aiResponse = await OpenAIApi.createImage({
+    const aiResponse = await openai.createImage({
       prompt,
       n: 1,
       size: "1024x1024",
