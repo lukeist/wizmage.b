@@ -5,11 +5,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import helmet from "helmet";
 import morgan from "morgan";
-
-import connectDB from "./mongodb/connect.js";
-import e from "express";
-
-import postRoutes from "./routes/post.js";
+import shareRoutes from "./routes/share.js";
 import dalleRoutes from "./routes/dalle.js";
 
 // CONFIGURATION
@@ -24,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 
 // ROUTES
-app.use("/api/v1/post", postRoutes);
+app.use("/api/v1/share", shareRoutes);
 app.use("/api/v1/dalle", dalleRoutes);
 
 app.get("/", async (req, res) => {
