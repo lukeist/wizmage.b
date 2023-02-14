@@ -5,6 +5,7 @@ import {
   updatePostLiked,
   updatePostDisliked,
 } from "../controllers/Post.js";
+
 const router = express.Router();
 
 router.get("/", getPost);
