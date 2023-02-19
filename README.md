@@ -10,6 +10,8 @@ The app is built with a React frontend and aa Node.js with Express.js backend, a
 - https://skizzenhaus.com
 - https://skizzenhaus.vercel.app
 
+![alt tag](https://github.com/hiluan/hiluan/raw/main/images/hiluan-skizzenhaus-ai-image-generator.gif)
+
 Here are the GitHub repositories for the frontend and backend:
 
 - Frontend: https://github.com/hiluan/skizzenhaus-AI-image-generator-frontend
