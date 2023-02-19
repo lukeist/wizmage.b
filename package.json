@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@google-cloud/translate": "^7.1.0",
     "@improbable-eng/grpc-web": "^0.15.0",
     "@improbable-eng/grpc-web-node-http-transport": "^0.15.0",
     "body-parser": "^1.20.1",
@@ -21,6 +22,7 @@
     "google-protobuf": "^3.21.2",
     "grpc": "^1.24.11",
     "helmet": "^6.0.1",
+    "languagedetect": "^2.0.0",
     "mongoose": "^6.9.1",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
