@@ -3,6 +3,33 @@ import { v2 as cloudinary } from "cloudinary";
 
 export const getPost = async (req, res) => {
   try {
+    // apply lazy loading by limiting each request to `limit`
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 23;
+    const startIndex = (page - 1) * limit;
+
+    const totalPosts = await Post.countDocuments();
+    const totalPages = Math.ceil(totalPosts / limit);
+
+    const posts = await Post.find({})
+      .sort({ createdAt: -1 })
+      .skip(startIndex)
+      .limit(limit);
+
+    // res.status(200).json({ success: true, data: Posts, totalPages });
+    res.status(200).json({
+      success: true,
+      data: posts,
+      currentPage: page,
+      totalPages,
+    });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+export const getAllPosts = async (req, res) => {
+  try {
     const Posts = await Post.find({});
     res.status(200).json({ success: true, data: Posts });
   } catch (error) {
