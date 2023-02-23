@@ -51,7 +51,7 @@ export const postPost = async (req, res) => {
     const newPost = await Post.create({
       name,
       prompt,
-      photo: photoUrl.url,
+      photo: photoUrl.url.replace("http://", "https://"),
       liked: 0,
       disliked: 0,
     });
